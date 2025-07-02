@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halaman 3 - Cerita Malam di Pondok</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .fade-in {
+      animation: fadeIn 1.8s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .typing {
+      white-space: pre-line;
+      border-right: 2px solid #f472b6;
+      animation: blink 0.7s step-end infinite;
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+    .text-blink {
+      animation: textBlink 1.2s infinite;
+    }
+    @keyframes textBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    } 
+  </style>
+  <script src="script.js"></script>
+</head>
+<body class="bg-pink-50 h-screen flex flex-col items-center justify-center text-center px-6 fade-in">
+
+  <div class="text-center w-full max-w-3xl">
+    <div class="text-blink">
+    <h2 class="text-4xl font-bold text-pink-600 mb-6">Cerita pengalaman di ponpess</h2>
+    </div>
+    <p id="typing-text" class="text-gray-700 text-lg leading-relaxed mb-6 px-4 typing"></p>
+    <div class="flex justify-center gap-4">
+      <a href="page2.html" class="px-5 py-2 bg-pink-400 text-white rounded-full shadow hover:bg-pink-500 transition">⟵ Sebelumnya</a>
+      <a href="page4.html" class="px-5 py-2 bg-pink-500 text-white rounded-full shadow hover:bg-pink-600 transition">Lanjut ➜</a>
+    </div>
+  </div>
+
+  <script>
+    const text = `Waktu pertama kali kenalan kita sempet cerita tentang pondok pesantren. 
+    Kita saling sharing cerita tentang pengalaman di pondok,
+    dan itu bikin aku ngerasa kita punya banyak kesamaan.
+    Hal itu yang bikin aku mulai ngerasa kayak "wah anak pondok juga ya, seru nih".
+    Kita cerita banyak hal, mulai dari momen seru sampai hal-hal lucu yang terjadi di pondok.
+    Waktu itu aku ngerasa kayak kamuu orng yang asik banget, dan aku pengen kenal lebih jauh, dari situ, kita mulai sering ngobrol dan makin dekat.
+    Akhirnya, aku mulai ngerasa nyaman buat cerita banyak hal ke kamu.
+    Kamu selalu bisa bikin aku ketawa, dan itu bikin aku makin suka sama kamu.`;
+
+    const target = document.getElementById("typing-text");
+    let i = 0;
+
+    function typeWriter() {
+      if (i < text.length) {
+        target.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+      }
+    }
+
+    window.onload = typeWriter;
+  </script>
+</body>
+</html>

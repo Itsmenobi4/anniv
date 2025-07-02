@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halaman 18 - Pulang Bareng Kamu Itu Healing</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    .fade-in {
+      animation: fadeIn 1.8s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .healing-box {
+      background: linear-gradient(145deg, #ffe4ec, #fff0f5);
+      padding: 3rem 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 30px rgba(255, 182, 193, 0.5);
+      border: 3px solid #f9a8d4;
+    }
+
+    .healing-title {
+      background: linear-gradient(to right, #ec4899, #db2777);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .emoji-bounce {
+      display: inline-block;
+      animation: bounce 1.2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+  </style>
+</head>
+<body class="bg-pink-50 min-h-screen flex flex-col justify-center items-center px-6 fade-in text-center">
+
+  <div class="healing-box max-w-3xl">
+    <h2 class="text-3xl md:text-4xl font-bold healing-title mb-6">
+      Pulang Bareng Kamu Itu Healing <span class="emoji-bounce">🛵</span>
+    </h2>
+     <p id="typing-text" class="text-gray-700 text-lg leading-relaxed mb-6 px-4"></p>
+    <div class="flex justify-center gap-4">
+      <a href="page17.html" class="px-5 py-2 bg-pink-400 text-white rounded-full shadow hover:bg-pink-500 transition">
+        ⟵ Sebelumnya
+      </a>
+      <a href="page19.html" class="px-5 py-2 bg-pink-500 text-white rounded-full shadow hover:bg-pink-600 transition">
+        Lanjut ➜
+      </a>
+    </div>
+  </div>
+<script>
+    const text = ` Kamu tau gak, pulang bareng kamu itu kayak healing buat aku.  
+      Setiap perjalanan, rasanya kayak kita lagi ngobrol tanpa kata-kata.  
+      Angin yang berhembus, suara motor, semuanya bikin aku ngerasa tenang.  
+      Dan hal itu bisa ngilangin semua lelah aku pas habis latihan.  
+      Kita bisa ngobrol tentang apa aja, dari hal kecil sampe yang paling dalam.  
+      Dan setiap kali kita berhenti, aku selalu berharap bisa berhenti di hatimu selamanya.`;
+
+    const typingText = document.getElementById('typing-text');
+    let index = 0;
+
+    function typeEffect() {
+      if (index < text.length) {
+        typingText.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 25);
+      }
+    }
+
+    window.onload = typeEffect;
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

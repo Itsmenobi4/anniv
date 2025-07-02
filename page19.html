@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halaman 19 - Ketauan Paparazi</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .fade-in {
+      animation: fadeIn 1.8s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .emoji-blink {
+      animation: emojiPulse 1.2s infinite;
+      display: inline-block;
+    }
+    @keyframes emojiPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.25); }
+    }
+  </style>
+</head>
+<body class="bg-pink-50 h-screen flex flex-col justify-center items-center px-6 fade-in">
+
+  <div class="text-center w-full max-w-3xl">
+    <h2 class="text-4xl font-bold text-pink-600 mb-6">Isengg fotoinn kamuuuuu
+      <span class="emoji-blink">📸</span>
+    </h2>
+    <img src="assets/foto19.jpg" class="rounded-xl h-64 mx-auto mb-6 object-cover shadow-lg border-4 border-pink-200 transition-transform transform hover:scale-105 duration-300" alt="Moment Paparazi">
+     <p id="typing-text" class="text-gray-700 text-lg leading-relaxed mb-6 px-4"></p>
+    <div class="flex justify-center gap-4">
+      <a href="page18.html" class="px-5 py-2 bg-pink-400 text-white rounded-full shadow hover:bg-pink-500 transition">⟵ Sebelumnya</a>
+      <a href="page20.html" class="px-5 py-2 bg-pink-500 text-white rounded-full shadow hover:bg-pink-600 transition">Lanjut ➜</a>
+    </div>
+  </div>
+  <script>
+    const text = `Lagi diem, eh... ketangkep kamera. Entah lagi senyum sendiri, ngeliatin kamu,  
+      atau lagi ngelakuin hal random—tapi lucu banget diliatnya.  
+      Momen-momen kecil yang keliatannya biasa aja, tapi ternyata bisa nyimpen rasa.  
+      Dan dari semua foto candid itu... yang paling sering senyum, selalu aku waktu liat kamu.`;
+
+    const typingText = document.getElementById('typing-text');
+    let index = 0;
+
+    function typeEffect() {
+      if (index < text.length) {
+        typingText.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 25);
+      }
+    }
+
+    window.onload = typeEffect;
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

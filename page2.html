@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halaman 2 - Hari Jadian</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+<style>
+  .fade-in {
+    animation: fadeIn 2s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .typing {
+    white-space: pre-line;
+    border-right: 2px solid #ff69b4;
+    animation: blink 0.75s step-end infinite;
+  }
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+
+  .emoji-blink {
+    animation: emojiPulse 1.2s infinite;
+    display: inline-block;
+  }
+
+  @keyframes emojiPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+  }
+</style>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="script.js"></script>
+</head>
+<body class="bg-pink-50 h-screen flex flex-col items-center justify-center text-center px-6 fade-in">
+
+  <div class="text-center w-full max-w-3xl">
+<h2 class="text-5xl font-extrabold text-pink-600 mb-6 drop-shadow">
+  Hari Jadian <span class="emoji-blink">💍</span>
+</h2>
+<p id="typing-text" class="text-gray-800 text-xl leading-relaxed mb-10 typing"></p>
+    <div class="flex justify-center gap-4">
+      <a href="page1.html" class="px-5 py-2 bg-pink-400 text-white rounded-full shadow hover:bg-pink-500 transition">⟵ Sebelumnya</a>
+      <a href="page3.html" class="px-5 py-2 bg-pink-500 text-white rounded-full shadow hover:bg-pink-600 transition">Lanjut ➜</a>
+    </div>
+  </div>
+  <script>
+    const text = `23 Juli 2024 — hari di mana semuanya resmi dimulai.  
+      Hari itu kita jadi "kita".  
+      Dan buat aku, itu salah satu hari paling berharga dalam hidupku.`;
+
+    const typingText = document.getElementById('typing-text');
+    let index = 0;
+
+    function typeEffect() {
+      if (index < text.length) {
+        typingText.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 25);
+      }
+    }
+
+    window.onload = typeEffect;
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

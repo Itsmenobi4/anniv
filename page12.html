@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halaman 12 - Ngoding Bareng Python</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .fade-in {
+      animation: fadeIn 1.8s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .text-blink {
+      animation: textBlink 1.2s infinite;
+    }
+    @keyframes textBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  </style>
+</head>
+<body class="bg-pink-50 h-screen flex flex-col items-center justify-center text-center px-6 fade-in">
+<div class="text-center w-full max-w-3xl">
+  <div class="text-blink">
+    <h2 class="text-4xl font-bold text-pink-600 mb-6">Waktu Kamu minta di ajarin ngodinggg</h2>
+</div>
+    <img src="assets/foto12.jpg" alt="Ngoding Bareng" class="rounded-xl h-64 mx-auto mb-6 object-cover shadow-lg border-4 border-pink-200"/>
+
+    <p id="typing-text" class="text-gray-700 text-lg leading-relaxed mb-6 px-4"></p>
+
+    <div class="flex justify-center gap-4">
+      <a href="page11.html" class="px-5 py-2 bg-pink-400 text-white rounded-full shadow hover:bg-pink-500 transition">⟵ Sebelumnya</a>
+      <a href="page13.html" class="px-5 py-2 bg-pink-500 text-white rounded-full shadow hover:bg-pink-600 transition">Lanjut ➜</a>
+    </div>
+  </div>
+
+  <script>
+    const text = `Waktu itu kamu minta di ajarin ngodinggg ngoding, dan aku langsung semangat ngajarin.
+Waktu itu kitaa masii pake hp, Kaamuuu nyimakk dengan baikkk, dan meskipun kamu sempat bingung, kamu tetep semangat buat pahamin apa yang aku ajarinnn.
+dari gambar itu akuu bisaaa liat kalo kamu bener bener mau di ajarinnnn
+Aku suka banget liat kamu antusias, nanya ini itu sambil senyum.
+Dari situ, aku makin yakin—segala hal bareng kamu itu selalu seru.`;
+
+    const typingText = document.getElementById('typing-text');
+    let index = 0;
+
+    function typeEffect() {
+      if (index < text.length) {
+        typingText.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 25);
+      }
+    }
+
+    window.onload = typeEffect;
+  </script>
+</body>
+</html>

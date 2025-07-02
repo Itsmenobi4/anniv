@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Storybook Caca - Cover</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .fade-in {
+      animation: fadeIn 1.8s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .emoji-bounce {
+      display: inline-block;
+      animation: bounce 1.5s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+  <script src="script.js"></script>
+</head>
+<body class="bg-pink-100 min-h-screen flex flex-col items-center justify-center text-center px-4 fade-in">
+
+  <h1 class="text-5xl font-bold text-pink-600 mb-6">Hi Dedeeee 
+    <span class="emoji-bounce">❤️‍🔥</span>
+  </h1>
+
+  <img src="assets/foto1.png" alt="cover" class="rounded-xl w-full max-w-xl h-auto mb-6 shadow-lg object-contain mx-auto transition-transform transform hover:scale-105 duration-300"/>
+
+   <p id="typing-text" class="text-gray-700 text-lg leading-relaxed mb-6 px-4"></p>
+  <a href="page1.html" class="px-6 py-3 bg-pink-500 hover:bg-pink-600 text-white text-lg rounded-lg shadow transition">
+    Bukaaaaa
+  </a>
+  <script>
+    const text = `Ini Isinyaaaa cerita kitaaa berduaaa, dari awal sampe sekarang. Klik buka buat liat cerita-cerita spesial kita. 
+    Tiap page isinyaa sangatt spesialllll, karena isinya cuma tentang kita.
+    akuuu buat iniii buat kamuuuuu, dedeeeeee.
+    sebagaii kado Anniversarry kitaaaaa yang pertamaaa.
+    Semoga kamu sukaaa, dan semoga kita bisa terus bersama sampai tuaaa.
+    selalu bahagiaaa, selalu tertawaaa, selalu berdua.
+    Aku sayang kamuuuuu, dedeeeeee.`;
+
+    const typingText = document.getElementById('typing-text');
+    let index = 0;
+
+    function typeEffect() {
+      if (index < text.length) {
+        typingText.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 25);
+      }
+    }
+
+    window.onload = typeEffect;
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

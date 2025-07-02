@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halaman 24 - Terima Kasih Udah Baca</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    .fade-in {
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .thank-box {
+      background: linear-gradient(145deg, #ffe4ec, #ffffff);
+      padding: 2.5rem;
+      border-radius: 2rem;
+      box-shadow: 0 15px 25px rgba(255, 192, 203, 0.4);
+      border: 3px solid #f9a8d4;
+    }
+
+    .kiss {
+      position: absolute;
+      font-size: 2rem;
+      animation: kissFloat 2s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes kissFloat {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-100px) scale(1.5); }
+    }
+  </style>
+</head>
+<body class="bg-pink-50 min-h-screen flex flex-col items-center justify-center text-center px-6 fade-in relative overflow-hidden">
+
+  <div class="thank-box max-w-2xl">
+    <h2 class="text-4xl font-bold text-pink-600 mb-4">Terima Kasih Udah Baca <span class="heart">💖</span></h2>
+<p id="typing-text" class="text-gray-700 text-lg leading-relaxed mb-6 px-4"></p>
+    <button onclick="showKiss()" class="mt-6 px-5 py-2 bg-pink-500 text-white rounded-full shadow hover:bg-pink-600 transition">
+      Klikkkkk
+    </button>
+  </div>
+
+  <div class="flex gap-4 mt-10">
+    <a href="page23.html" class="px-5 py-2 bg-pink-400 text-white rounded-full shadow hover:bg-pink-500 transition">
+      ⟵ Kembali
+    </a>
+  </div>
+
+  <script>
+    function showKiss() {
+      const kiss = document.createElement('div');
+      kiss.className = 'kiss';
+      kiss.innerText = 'I LOVEEEE YOUUUUUUU! 💋';
+      kiss.style.left = `${Math.random() * 80 + 10}%`;
+      document.body.appendChild(kiss);
+
+      setTimeout(() => {
+        kiss.remove();
+      }, 2000);
+    }
+        const text = `Makasih udah mau baca semuanya dari awal sampe akhir.
+      Storybook ini mungkin sederhana, tapi tiap halamannya ditulis pake rasa yang bener-bener nyata.
+      Kalau kamu senyum sedikit aja pas baca ini, berarti semuanya gak sia-sia.
+      Aku sayang kamu—selalu dan terus. 💌`;
+
+    const typingText = document.getElementById('typing-text');
+    let index = 0;
+
+    function typeEffect() {
+      if (index < text.length) {
+        typingText.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 25);
+      }
+    }
+
+    window.onload = typeEffect;
+  </script>
+<script src="script.js"></script>
+</body>
+</html>

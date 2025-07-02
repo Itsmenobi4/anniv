@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halaman 15 - Maaf Soal Aku yang Ngeluh</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .fade-in {
+      animation: fadeIn 1.8s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .love-bg {
+      background: linear-gradient(145deg, #ffe4e6, #fbcfe8);
+    }
+    .emoji-shake {
+      display: inline-block;
+      animation: shake 1.5s infinite ease-in-out;
+    }
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      75% { transform: rotate(-5deg); }
+    }
+  </style>
+</head>
+<body class="love-bg h-screen flex flex-col justify-center items-center text-center px-6 fade-in">
+
+  <div class="w-full max-w-4xl px-6">
+    <h2 class="text-5xl font-extrabold text-pink-600 mb-6 drop-shadow">Maaf ya, Aku Sering ngeluh
+      <span class="emoji-shake">🥺</span>
+    </h2>
+
+    <p id="typing-text" class="text-gray-700 text-lg leading-relaxed mb-6 px-4"></p>
+
+    <div class="flex justify-center gap-4">
+      <a href="page14.html" class="px-6 py-2 bg-pink-400 text-white rounded-full shadow hover:bg-pink-500 transition">
+        ⟵ Sebelumnya
+      </a>
+      <a href="page16.html" class="px-6 py-2 bg-pink-500 text-white rounded-full shadow hover:bg-pink-600 transition">
+        Lanjut ➜
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const text = `Aku minta maaf kalo aku sering ngeluh saat kamu lagi main sama temen-temen kamu.  
+Kadang rasa kangen dan takut kehilangan tuh muncul jadi bentuk yang salah.  
+Aku bukannya nggak ngizinin kamu bahagia bareng mereka, cuma kadang aku egois, pengen kamu buat aku terus.  
+Tapi aku belajar kok, bahwa cinta itu juga soal ngasih ruang dan percaya.  
+Tapi jujur... aku cemburu sama mereka yang bisa habisin waktu bareng kamu, sedangkan aku jarang banget bisa.  
+Aku cuma pengen kamu tahu, aku sayang banget, makanya kadang suka cemburu diam-diam.`;
+
+    const typingText = document.getElementById('typing-text');
+    let index = 0;
+
+    function typeEffect() {
+      if (index < text.length) {
+        typingText.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 25);
+      }
+    }
+
+    window.onload = typeEffect;
+  </script>
+</body>
+</html>

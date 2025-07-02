@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halaman 10 - Tempat Ternyaman</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .fade-in {
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .clouds::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 300%;
+      height: 100%;
+      background: url('https://i.ibb.co/5LkM0Xf/clouds.png') repeat-x;
+      animation: moveClouds 60s linear infinite;
+      opacity: 0.07;
+    }
+
+    @keyframes moveClouds {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    #typing-text {
+      white-space: pre-line;
+    }
+    .emoji-blink {
+      animation: emojiPulse 1.2s infinite;
+      display: inline-block;
+    }
+    @keyframes emojiPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.25); }
+    }
+  </style>
+</head>
+<body class="relative bg-pink-50 min-h-screen flex flex-col justify-center items-center text-center px-6 fade-in overflow-hidden clouds">
+
+  <div class="relative z-10 w-full max-w-5xl">
+    <h2 class="text-5xl font-bold text-pink-600 mb-10 drop-shadow">Kamu Tempat ternyaman
+      <span class="emoji-blink">🏡</span>
+    </h2>
+
+    <p id="typing-text" class="text-gray-800 text-xl leading-relaxed mb-10 px-6 sm:px-12 lg:px-24 min-h-[300px]"></p>
+
+    <div class="flex justify-center gap-6">
+      <a href="page9.html" class="px-6 py-2 bg-pink-400 text-white text-lg rounded-full shadow-lg hover:bg-pink-500 transition duration-300">
+        ⟵ Sebelumnya
+      </a>
+      <a href="page11.html" class="px-6 py-2 bg-pink-500 text-white text-lg rounded-full shadow-lg hover:bg-pink-600 transition duration-300">
+        Lanjut ➜
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const text = `Sama kamu, aku gak harus jadi siapa-siapa. Aku bisa jadi diri sendiri.
+Bisa cerita apa aja, bisa ketawa segila itu, bisa nangis segitu jujurnya,
+aku bisa jadi anak kecil yang gak peduli dunia.
+Kamu bikin aku ngerasa aman, nyaman, dan bahagia.
+Tempat ternyaman akuuu... cuma kamu.
+Akuuu sayang banget sama kamu, kamu adalah tempat ternyaman aku,
+tempat dimana aku bisa jadi diri sendiri tanpa takut dihakimi.
+I LOVE YOU SO MUCHHH 💗`;
+
+    const typingText = document.getElementById('typing-text');
+    let index = 0;
+
+    function typeEffect() {
+      if (index < text.length) {
+        typingText.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 25); // Kecepatan ketiknya
+      }
+    }
+
+    window.onload = typeEffect;
+  </script>
+
+</body>
+</html>

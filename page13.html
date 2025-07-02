@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halaman 13 - Waktu Kamu Ulang Tahun</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .fade-in {
+      animation: fadeIn 1.8s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .emoji-blink {
+      animation: emojiPulse 1.2s infinite;
+      display: inline-block;
+    }
+    @keyframes emojiPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.25); }
+    }
+  </style>
+</head>
+<body class="bg-pink-50 h-screen flex flex-col items-center justify-center text-center px-6 fade-in">
+
+  <div class="text-center w-full max-w-3xl">
+    <h2 class="text-4xl font-bold text-pink-600 mb-6">Waktu Kamu Ulang Tahun
+      <span class="emoji-blink">🎉</span>
+    </h2>
+
+    <img src="assets/foto13.jpg" alt="Ulang Tahun Caca" class="bg-pink-400 rounded-xl w-full max-w-xl h-64 object-cover mb-6 shadow-lg mx-auto transition-transform transform hover:scale-105 duration-300"/>
+
+    <p id="typing-text" class="text-gray-700 text-lg leading-relaxed mb-6 px-4"></p>
+
+    <div class="flex justify-center gap-4">
+      <a href="page12.html" class="px-5 py-2 bg-pink-400 text-white rounded-full shadow hover:bg-pink-500 transition">⟵ Sebelumnya</a>
+      <a href="page14.html" class="px-5 py-2 bg-pink-500 text-white rounded-full shadow hover:bg-pink-600 transition">Lanjut ➜</a>
+    </div>
+  </div>
+
+  <script>
+    const text = `Hari ulang tahun kamu harusnya jadi hari paling bahagia.
+Tapi waktu itu... kita justru lagi saling jauh.
+Aku nyesel, karena di hari kamu nambah umur, aku gak bisa jadi orang pertama yang peluk dan bilang "aku sayang kamu."
+Beruntung saat itu ada teman teman muu yang kasih surprise.
+Tapi sekarang aku ngerti...
+Semua itu ngajarin aku buat jangan turutin ego lagi.`;
+
+    const typingText = document.getElementById('typing-text');
+    let index = 0;
+
+    function typeEffect() {
+      if (index < text.length) {
+        typingText.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 25); // ubah 25 ke lebih kecil kalau mau lebih cepat
+      }
+    }
+
+    window.onload = typeEffect;
+  </script>
+</body>
+</html>

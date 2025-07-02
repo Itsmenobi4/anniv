@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halaman 20 - Pas Kamu Bilang Sayang Duluan</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .fade-in {
+      animation: fadeIn 1.8s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .emoji-shake {
+      display: inline-block;
+      animation: shake 1.5s infinite ease-in-out;
+    }
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      75% { transform: rotate(-5deg); }
+    }
+  </style>
+</head>
+<body class="bg-pink-50 h-screen flex flex-col justify-center items-center px-6 fade-in">
+
+  <div class="text-center w-full max-w-3xl">
+    <h2 class="text-4xl font-bold text-pink-600 mb-6">Pas Kamu Bilang Sayang Duluan
+      <span class="emoji-shake">💖</span>
+    </h2>
+    <img src="assets/foto20.jpg" class="rounded-xl h-64 mx-auto mb-6 object-cover shadow-lg border-4 border-pink-200 transition-transform transform hover:scale-105 duration-300" alt="Sayang Duluan">
+    <p id="typing-text" class="text-gray-700 text-lg leading-relaxed mb-6 px-4"></p>
+    <div class="flex justify-center gap-4">
+      <a href="page19.html" class="px-5 py-2 bg-pink-400 text-white rounded-full shadow hover:bg-pink-500 transition">⟵ Sebelumnya</a>
+      <a href="page21.html" class="px-5 py-2 bg-pink-500 text-white rounded-full shadow hover:bg-pink-600 transition">Lanjut ➜</a>
+    </div>
+  </div>
+<script>
+    const text = `Aku masih inget jelas waktu kamu pertama kali bilang "aku sayang kamu" duluan. Jantung aku deg-degan gak karuan, tapi juga anget banget rasanya. Bukan karena kata-katanya aja, tapi karena aku tahu kamu tulus. Dari situ, semuanya jadi makin nyata. Makin yakin. Makin cinta.
+`;
+
+    const typingText = document.getElementById('typing-text');
+    let index = 0;
+
+    function typeEffect() {
+      if (index < text.length) {
+        typingText.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 25);
+      }
+    }
+
+    window.onload = typeEffect;
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

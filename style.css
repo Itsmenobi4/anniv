@@ -1,0 +1,52 @@
+body {
+  background-color: #fce7f3;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Container untuk seluruh buku */
+.book {
+  perspective: 2000px;
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  margin: auto;
+  position: relative;
+}
+
+/* Halaman buku */
+.page {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease-in-out;
+}
+
+/* Sisi depan & belakang */
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Belakang dibalik */
+.back {
+  transform: rotateY(180deg);
+}
+
+/* Kalau class flipped dikasih: halaman dibalik */
+.page.flipped {
+  transform: rotateY(180deg);
+}
